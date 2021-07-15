@@ -1,16 +1,17 @@
-const { request, response } = require('express');
 const express = require('express');
 const app = express();
 
 app.use(express.json());
-app.set('port', process.env.PORT || 3000)
-app.locals = {
-    title: 'Favorites',
-    favorites: []
-}
+app.set('port', process.env.PORT || 3000);
+app.locals.title = 'Favorite movies'
+app.locals.favorites = [
 
-app.post('/movies/:id', (request, response) => {
+]
 
+app.get('/favorites', (request, response) => {
+    response.status(200).send({
+        favorites: app.locals.favorites
+    })
 })
 
 app.listen(app.get('port'), () => {
