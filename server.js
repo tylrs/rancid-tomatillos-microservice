@@ -14,7 +14,7 @@ app.get('/favorites', (request, response) => {
     })
 })
 
-app.post('/favorites/:id', (request, response) => {
+app.post('/favorites/', (request, response) => {
     const newFavorite = request.body;
     const reqParams = ['id', 'title', 'poster_path'];
     let error = false;
