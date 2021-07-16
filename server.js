@@ -14,17 +14,8 @@ app.get('/favorites', (request, response) => {
 
 app.post('/favorites/:id', (request, response) => {
     const newFavorite = request.body;
-    const reqParams = ['id', 'title', 'poster_path'];
-    let error = false;
-    reqParams.forEach((param, index) => {
-        if (!newFavorite[param]) {
-            response.status(422).send('Please send all required data');
-            error = true;
-        } else if (index === 2 && !error) {
-            app.locals.favorites.push(newFavorite);
-            response.status(200).send(newFavorite);
-        }
-    })
+    app.locals.favorites.push(newFavorite);
+    response.status(200).send(newFavorite);
 })
 
 app.listen(app.get('port'), () => {
