@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.use(express.json());
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.locals.title = 'Favorite movies';
 app.locals.favorites = [];
 
@@ -40,3 +40,5 @@ app.listen(app.get('port'), () => {
 //user sees a message seeing that it was successful 
 
 //movies need a new isFavorited property 
+//there will be a favrorites array in state
+//if the movie is in favorites array then it should be rendered in the full view with a styled heart
