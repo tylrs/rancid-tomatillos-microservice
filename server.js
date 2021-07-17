@@ -45,15 +45,3 @@ app.delete('/favorites', (request, response) => {
 app.listen(app.get('port'), () => {
     console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`);
 })
-
-//favoriting a movie:
-//click on heart button from full movie view
-//favorite movie is a function/prop passed down to full movie....this is invoked.
-//it uses an id prop taken from Movie to search through all movies and finds one with matching id
-//it takes only the title and poster path and id from this.state.movies
-//a fetch call runs which posts the new favorited movie to the microservice 
-//user sees a message seeing that it was successful 
-
-//movies need a new isFavorited property 
-//there will be a favrorites array in state
-//if the movie is in favorites array then it should be rendered in the full view with a styled heart
