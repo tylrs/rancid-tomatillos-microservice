@@ -14,7 +14,7 @@ app.get('/favorites', (request, response) => {
     })
 })
 
-app.post('/favorites/', (request, response) => {
+app.post('/favorites', (request, response) => {
     const newFavorite = request.body;
     const reqParams = ['id', 'title', 'poster_path'];
     let error = false;
@@ -27,6 +27,19 @@ app.post('/favorites/', (request, response) => {
             response.status(200).send(newFavorite);
         }
     })
+})
+
+app.delete('/favorites', (request, response) => {
+    let id = parseInt(request.body.id)
+    app.locals.favorites.find((movie, index, favorites) => {
+        if (movie.id === id) {
+            favorites.splice(index, 1)
+            return true;
+        } else {
+            return false;
+        }
+    })
+    response.status(200).send({favorites: app.locals.favorites});
 })
 
 app.listen(app.get('port'), () => {
