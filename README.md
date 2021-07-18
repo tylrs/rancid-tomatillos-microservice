@@ -39,7 +39,7 @@ npm start
 | :-------- | :------- | :------- | :------------ |
 | Get all favorites | /favorites | GET |  `{"id": <Integer>, "title": <String> , "posterPath": <URL Path>}` |
 | Add to favorites | /favorites | POST |  `{"id": <Integer>, "title": <String> , "posterPath": <URL Path>}`
-| Remove from favoites | /favorites | DELETE | An new array of favorites (no response body).
+| Remove from favorites | /favorites | DELETE | An array of newly updated favorites minus the one you deleted. |
 
 
 ## Authors
