@@ -30,18 +30,21 @@ app.post('/favorites', (request, response) => {
 })
 
 app.delete('/favorites', (request, response) => {
-    let id = parseInt(request.body.id)
-    app.locals.favorites.find((movie, index, favorites) => {
-        if (movie.id === id) {
-            favorites.splice(index, 1)
-            return true;
-        } else {
-            return false;
-        }
-    })
-    response.status(200).send({favorites: app.locals.favorites});
+    if ((typeof request.body.id) === 'number') {
+        let id = parseInt(request.body.id)
+        app.locals.favorites.find((movie, index, favorites) => {
+            if (movie.id === id) {
+                favorites.splice(index, 1)
+                return true;
+            } else {
+                return false;
+            }
+        })
+        response.status(200).send({favorites: app.locals.favorites});
+    } else {
+        response.status(422).send('Incorrect submission');
+    }
 })
-
 app.listen(app.get('port'), () => {
     console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`);
 })
