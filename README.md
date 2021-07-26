@@ -1,27 +1,32 @@
 
 # Rancid Tomatillos Microservice 
 
-This API was built with Express for the project [Rancid Tomatillos](https://github.com/tylrs/rancid-tomatillos). 
+This API was built with Express for the project [onlyDevs](https://github.com/andrewvallejo/only-devs). It includes a backend made with PostgreSQL that contains 50 front-end developer interview questions that also holds user submitted answers. 
 
 ## Badges 
 
 <p style="text-align: center;"> 
     <img alt="JavaScript Badge" src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=flat-square" />
     <img alt="Express Badge" src="https://img.shields.io/badge/Express-000?logo=express&logoColor=fff&style=flat-square" />
+	<img src="https://img.shields.io/badge/Babel-F9DC3E?logo=babel&logoColor=000&style=flat-square" alt="Babel Badge">
+	<img src="https://img.shields.io/badge/Nodemon-76D04B?logo=nodemon&logoColor=fff&style=flat-square" alt="Nodemon Badge">
+	<img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=fff&style=flat-square" alt="PostgreSQL Badge">
 </p>
 
 
 ## Features
 
-- Allows developers to have a favorite page on their website using a route to `/favorites`
-- The server allows for developers to post and delete submitted favorites.
+- GET front-end developer interview questions.
+- POST user submitted answers.
+- GET user submitted answers for specific questions.
+
 ## Installation
 
 Clone the repository and install dependencies
 
 ```szh 
-git clone git@github.com:tylrs/rancid-tomatillos-microservice.git
-cd rancid-tomatillos-microservice
+git clone git@github.com:andrewvallejo/only-devs-api.git
+cd only-devs-api
 npm install 
 ```
 
@@ -37,12 +42,14 @@ npm start
 
 | Purpose   | URL      | Verb   | Request Body |
 | :-------- | :------- | :------- | :------------ |
-| Get all favorites | /favorites | GET |  `{"id": <Integer>, "title": <String> , "posterPath": <URL Path>}` |
-| Add to favorites | /favorites | POST |  `{"id": <Integer>, "title": <String> , "posterPath": <URL Path>}`
-| Remove from favorites | /favorites | DELETE | An array of newly updated favorites minus the one you deleted. |
+| Get all questions | /questions | GET | All questions each with <br/>`{"id": <Integer>, "question": <String>, "answers": <Array>}` |
+| Get specific question | /questions/:id | GET |   `{"id": <Integer>, "question": <String>, "answers": <Array>}` 
+| Submit an answer to question | /question/:id | POST |  `{"answer": <String>}`
+
 
 
 ## Authors
 
-- [@Taylor Galloway](https://github.com/tylrs)
-- [@Andrew Vallejo](https://github.com/andrewvallejo)  
+- [@Shayan Golafshani](https://github.com/shayan-golafshani)
+- [@Andrew Vallejo](https://github.com/andrewvallejo) 
+- [@Rachael Carroll](https://github.com/rachaelcarroll)
